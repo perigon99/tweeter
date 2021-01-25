@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width:100%;
+  background-image: url("../images/asfalt--light--1920x1080.png");
+  flex-direction: column;
+  color:#fff;
+}

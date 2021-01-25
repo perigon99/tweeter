@@ -1,0 +1,28 @@
+nav  {
+
+  height: 120px;
+  display: flex;
+  align-items: center;
+  font-size: xxx-large;
+  background-color: #4056A1;
+  color: #fff;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif ;
+  padding: 1.5em;
+}
+
+.newTweet {
+  flex: 50%;
+  text-align: right;
+  font-size: x-large;
+}
+
+.newTweet i {
+  display: flex;
+    flex-direction: column;
+  align-self: baseline;
+  color: red;
+  padding-right: 5em;
+}
