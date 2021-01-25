@@ -1,11 +1,15 @@
 nav  {
-
+  position:-webkit-sticky;
+position: sticky;
+  width:100%;
+  top: 0px;
   height: 120px;
   display: flex;
   align-items: center;
   font-size: xxx-large;
   background-color: #4056A1;
   color: #fff;
+  z-index: 999;
 }
 
 nav span {
