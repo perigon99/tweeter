@@ -3,13 +3,21 @@
   flex-direction: column;
   align-content: center;
   width: 90%;
+}
+
+
+.tweets-section article {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 90%;
   background-color: #f4f1ec;
   border: 4px solid grey ;
   margin: 1.5em;
   
 }
 
-#tweets-section:hover {
+.tweets-section article:hover {
   box-shadow: 5px 5px lightskyblue;
 
 }
