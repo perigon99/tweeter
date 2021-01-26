@@ -1,6 +1,6 @@
 nav  {
   position:-webkit-sticky;
-position: sticky;
+  position: sticky;
   width:100%;
   top: 0px;
   height: 120px;
@@ -25,8 +25,15 @@ nav span {
 
 .newTweet i {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-self: baseline;
   color: red;
   padding-right: 5em;
+}
+
+@media (max-width:1224px) {
+  nav {
+    background-color: #11ffee00;
+    background-image: url("../images/asfalt--light--1920x1080.png");
+  }
 }

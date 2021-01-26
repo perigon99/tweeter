@@ -1,5 +1,8 @@
 .new-tweet {
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
   width: 90%;
   align-items: center;
@@ -17,7 +20,6 @@
   background-color: #f4f1ec;
   resize: none;
   border-bottom: gray;
-
 }
 
 .new-tweet button {
@@ -33,13 +35,11 @@
   order: none;
   height: 2px;
   background-color:grey; 
-
 }
 
 .new-tweet div{
   display: flex;
   flex-direction: row;
-  
 }
 
 .new-tweet output {
@@ -52,3 +52,18 @@
 .new-tweet form {
   width: 90%;
 }
+
+@media (max-width:1024) {
+  .new-tweet {
+    width: 70vw;
+    flex-direction: row;
+  }
+}
+
+@media (min-width:1224px) {
+  .new-tweet {  
+    width: 50vw;
+    flex-direction: row;
+  }
+}
+

@@ -1,5 +1,8 @@
 header {
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   height: 400px;
@@ -7,4 +10,18 @@ header {
   background-image: url("../images/asfalt--light--1920x1080.png");
   flex-direction: column;
   color:#fff;
+}
+
+@media (min-width:768) {
+  header {
+    flex-direction: column;
+  }
+}
+
+@media (min-width:1224px) {
+  header {
+    width: 25%;
+    margin: 5em;
+    flex-direction: row;
+  }
 }
