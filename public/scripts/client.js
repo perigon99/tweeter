@@ -61,6 +61,11 @@ $(document).ready(function() {
     $(".tweets-section").empty();
   };
 
+  const resetCounter = function() {
+    const resetVal = 140;
+    $(".counter").val(resetVal)
+  }
+
   const newTweetEvent = function() {
     $("#form1").submit(function(event) {
       event.preventDefault();
@@ -76,6 +81,7 @@ $(document).ready(function() {
         loadTweets();
         $("#tweet-text").val("");
         warning(" ");
+        resetCounter();
       }   
       );
     }
