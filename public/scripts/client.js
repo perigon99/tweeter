@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
 const renderTweets = function(tweets) {
   for (let information of tweets) {
     const $section = 
@@ -10,7 +16,7 @@ const renderTweets = function(tweets) {
         <h4>${information.user.name}</h4>           
           <small>${information.user.handle}</small>
       </div>   
-      <h5>${information.content.text}</h5>
+      <h5>${escape(information.content.text)}</h5>
       <hr>
       <div class="article-footer">
         <h5>${information.created_at}</h5>
@@ -38,15 +44,18 @@ const clearArticle = function() {
   $(".tweets-section").empty();
 }
 
-const clearInput = function() {
-  $("#form1").submit(function() {
-    console.log($("#tweet-text").val())
-    $("#tweet-text").attr("value", "")});
-}
+
 
 const newTweetEvent = function() {
   $("#form1").submit(function(event) {
     event.preventDefault();
+    if(!$("#tweet-text").val()) {
+      return alert("You must enter text here !!!")
+    }
+    if($(".counter").val() < 0) {
+      return alert("Maximum character exeeded for the tweet !!!")
+    }
+
     $.post("/tweets/", $( this ).serialize()).done(function() {
       clearArticle();
       loadTweets();
