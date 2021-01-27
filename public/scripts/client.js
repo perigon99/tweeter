@@ -75,10 +75,10 @@ $(document).ready(function() {
     $("#form1").submit(function(event) {
       event.preventDefault();
       if (!$("#tweet-text").val()) {
-        return warning("You must enter text here !!!");
+        return warning(`<i class="fas fa-exclamation-triangle"></i>You must enter text here !!!<i class="fas fa-exclamation-triangle"></i>`);
       }
       if ($(".counter").val() < 0) {
-        return warning("Maximum character exeeded for the tweet !!!");
+        return warning(`<i class="fas fa-exclamation-triangle"></i>Maximum character exeeded for the tweet !!!<i class="fas fa-exclamation-triangle"></i>`);
       }
 
       $.post("/tweets/", $(this).serialize()).done(function() {
@@ -95,10 +95,4 @@ $(document).ready(function() {
   //--------------------------------Function calling ------------------------------------------------
   loadTweets();
   newTweetEvent();
-
-
 });
-
-
-
-

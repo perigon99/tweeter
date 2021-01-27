@@ -7,6 +7,7 @@
   width: 90%;
   align-items: center;
   flex-direction: column;
+  padding: 1em;;
 }
 
 .new-tweet textarea {
@@ -53,17 +54,19 @@
   width: 90%;
 }
 
+#warning {
+  color: red;
+}
+
 @media (max-width:1024) {
   .new-tweet {
     width: 70vw;
-    flex-direction: row;
   }
 }
 
 @media (min-width:1224px) {
   .new-tweet {  
-    width: 50vw;
-    flex-direction: row;
+    width: 50vw;  
   }
 }
 
