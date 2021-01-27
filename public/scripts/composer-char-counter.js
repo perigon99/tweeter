@@ -10,6 +10,7 @@ $(document).ready(function() {
     countetElement.css("color", "red");
   } else {
     countetElement.css("color", "#545149");
+    $("#warning").html(" ")
   }
   })
 });
