@@ -1,11 +1,8 @@
 $(document).ready(function() {
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
 
-  const sinceTime = (unixtime) => {
+//--------------------------Helper functions-----------------------------------------------
+  //Compare curent unixtime to the tweet unixtime and return human readable remaining time
+  const sinceTime = (unixtime) => { 
     const curentTime = new Date().getTime();
     let since = curentTime - unixtime;
     since = Math.floor(since / 1000);
@@ -19,7 +16,29 @@ $(document).ready(function() {
     }
     return "Posted " + hours + " h " + minutes + " m ago";
   };
+  
+  //Prevent cross-site xml attacks
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  
+  //Manage warning messages for new tweets
+  const warning = function(warn) {
+    $("#warning").slideDown("slow").html(warn);
+  };
+  
+  const clearArticle = function() {
+    $(".tweets-section").empty();
+  };
+  
+  const resetCounter = function() {
+    const resetVal = 140;
+    $(".counter").val(resetVal)
+  }
 
+  //----------------------App functions ---------------------------------------------------
 
   const renderTweets = function(tweets) {
     for (let information of tweets) {
@@ -52,24 +71,11 @@ $(document).ready(function() {
     }
   };
 
-  const warning = function(warn) {
-    $("#warning").slideDown("slow").html(warn);
-  };
-
   const loadTweets = function() {
     $.get("/tweets/", function(response) {
       renderTweets(response);
     });
   };
-
-  const clearArticle = function() {
-    $(".tweets-section").empty();
-  };
-
-  const resetCounter = function() {
-    const resetVal = 140;
-    $(".counter").val(resetVal)
-  }
 
   const newTweetEvent = function() {
     $("#form1").submit(function(event) {
@@ -80,7 +86,6 @@ $(document).ready(function() {
       if ($(".counter").val() < 0) {
         return warning(`<i class="fas fa-exclamation-triangle"></i>Maximum character exeeded for the tweet !!!<i class="fas fa-exclamation-triangle"></i>`);
       }
-
       $.post("/tweets/", $(this).serialize()).done(function() {
         clearArticle();
         loadTweets();

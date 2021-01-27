@@ -3,9 +3,9 @@ $(document).ready(function() {
   $("#tweet-text").keydown( (event) => { 
    const countetElement = $(event.target).siblings(".counterclass").children("output"); 
    const currentString = $("#tweet-text").val();
-
-  let result = count - currentString.length
-   countetElement.val(result) ;
+   let result = count - currentString.length
+   countetElement.val(result);
+   
   if (result <= 0) {
     countetElement.css("color", "red");
   } else {

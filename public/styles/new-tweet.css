@@ -32,6 +32,10 @@
   border-style: none;
 }
 
+.new-tweet button:hover{
+  transform: scale(1.2);
+}
+
 .new-tweet hr {
   order: none;
   height: 2px;
@@ -69,4 +73,3 @@
     width: 50vw;  
   }
 }
-
