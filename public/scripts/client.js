@@ -23,6 +23,10 @@ $(document).ready(function() {
 
   const renderTweets = function(tweets) {
     for (let information of tweets) {
+      let text1 = escape(information.content.text);
+      let text2 = escape(information.content.text);
+      text1 = text1.slice(0, 74);
+      text2 = text2.slice(75, 140);
       const $section =
     `
     <article>
@@ -31,7 +35,8 @@ $(document).ready(function() {
         <h4>${information.user.name}</h4>           
           <small>${information.user.handle}</small>
       </div>   
-      <h5>${escape(information.content.text)}</h5>
+      <h5>${text1}</h5>
+      <h5>${text2}</h5>
       <hr>
       <div class="article-footer">
         <h5>${sinceTime(information.created_at)}</h5>
