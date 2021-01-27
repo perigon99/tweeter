@@ -47,26 +47,26 @@ $(document).ready(function() {
       text1 = text1.slice(0, 74);
       text2 = text2.slice(75, 140);
       const $section =
-    `
-    <article>
-      <div class="article-head">
-        <img src="${information.user.avatars}" alt="">
-        <h4>${information.user.name}</h4>           
-          <small>${information.user.handle}</small>
-      </div>   
-      <h5>${text1}</h5>
-      <h5>${text2}</h5>
-      <hr>
-      <div class="article-footer">
-        <h5>${sinceTime(information.created_at)}</h5>
-        <small>
-          <i class="fas fa-flag"></i>
-          <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
-          </small> 
-      </div>     
-    </article>
-    `;
+        `
+        <article>
+          <div class="article-head">
+            <img src="${information.user.avatars}" alt="">
+            <h4>${information.user.name}</h4>           
+              <small>${information.user.handle}</small>
+          </div>   
+          <h5>${text1}</h5>
+          <h5>${text2}</h5>
+          <hr>
+          <div class="article-footer">
+            <h5>${sinceTime(information.created_at)}</h5>
+            <small>
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
+              </small> 
+          </div>     
+        </article>
+        `;
       $("#newsection").prepend($section);
     }
   };
@@ -86,9 +86,8 @@ $(document).ready(function() {
       if ($(".counter").val() < 0) {
         return warning(`<i class="fas fa-exclamation-triangle"></i>Maximum character exeeded for the tweet !!!<i class="fas fa-exclamation-triangle"></i>`);
       }
-      $.post("/tweets/", $(this).serialize()).done(function() {
-        clearArticle();
-        loadTweets();
+      $.post("/tweets/", $(this).serialize()).done(function(tweet) {
+        renderTweets([tweet]);
         $("#tweet-text").val("");
         warning(" ");
         resetCounter();
