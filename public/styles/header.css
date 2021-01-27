@@ -21,7 +21,7 @@ header {
 @media (min-width:1224px) {
   header {
     width: 25%;
-    margin: 5em;
+    margin: 2.6em;
     flex-direction: row;
   }
 }
